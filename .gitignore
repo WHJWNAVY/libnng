@@ -415,4 +415,4 @@ Mkfile.old
 dkms.conf
 
 install/
-*/build/
+build/
