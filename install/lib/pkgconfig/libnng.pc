@@ -1,0 +1,12 @@
+prefix=/mnt/d/Work/work_code/libnng/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libnng
+Description: libnng
+Version: 1.5.2
+Requires:
+Libs.private:
+Libs: -L${libdir} -lnng
+Cflags: -I${includedir}
