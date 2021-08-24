@@ -76,12 +76,11 @@ run_target() {
     echo "Run [${target}] end ..."
 }
 
-# clean_target
+clean_target
 install_pkgcfg
-# build_target nng
+build_target nng
 build_target demo/async
 build_target demo/http_client
 build_target demo/raw
 build_target demo/reqrep
 build_target demo/rest
-# run_target tests2j
