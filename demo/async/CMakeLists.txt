@@ -11,8 +11,8 @@ cmake_minimum_required (VERSION 2.8.7)
 
 project(nng-asyncdemo)
 
-set(PROJECT_EXE_SERVER nng-asyncdemo-server)
-set(PROJECT_EXE_CLIENT nng-asyncdemo-client)
+set(PROJECT_EXE_SERVER nng-async-server)
+set(PROJECT_EXE_CLIENT nng-async-client)
 set(CMAKE_BUILD_TYPE Release)
 # set(PROJECT_LD_PATH $ENV{PKG_LIBRARY_PATH})
 

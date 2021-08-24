@@ -9,21 +9,19 @@
 
 cmake_minimum_required (VERSION 2.8.7)
 
-project(reqrep)
+project(pubsub)
 
-set(PROJECT_EXE_REQREP nng-reqrep)
+set(PROJECT_EXE_PUBSUB nng-pubsub)
 set(CMAKE_BUILD_TYPE Release)
 # set(PROJECT_LD_PATH $ENV{PKG_LIBRARY_PATH})
 
 find_package(nng CONFIG REQUIRED)
 find_package(Threads)
 
-# Uncomment to enable ZeroTier transport
-# find_package(zerotiercore)
-
 # link_directories(${PROJECT_LD_PATH})
 
-add_executable(${PROJECT_EXE_REQREP} reqrep.c)
-target_link_libraries(${PROJECT_EXE_REQREP} nng::nng)
+add_executable(${PROJECT_EXE_PUBSUB} pubsub.c)
+target_link_libraries(${PROJECT_EXE_PUBSUB} nng::nng)
+target_compile_definitions(${PROJECT_EXE_PUBSUB} PRIVATE -DPARALLEL=${PARALLEL})
 
-install(TARGETS ${PROJECT_EXE_REQREP} RUNTIME DESTINATION bin)
+install(TARGETS ${PROJECT_EXE_PUBSUB} RUNTIME DESTINATION bin)
