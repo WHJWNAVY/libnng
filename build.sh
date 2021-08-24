@@ -133,11 +133,17 @@ stop_sh() {
     fi
 }
 
+code_lint() {
+	find demo -iname "*.[ch]" | xargs -r clang-format -i -style=file
+	find demo \( -iname "*.[ch]" -o -iname Makefile -o -iname CMakeLists.txt -o -iname README.md -o -iname config.in -o -iname "*.patch" -o -iname "*.pc.in" \) -executable | xargs -r chmod -x
+}
+
 print_help() {
     local app_name="$1"
     echo "Usage:"
     echo "$app_name <option> [target]"
     echo "Option:"
+    echo "    lint"
     echo "    prepare"
     echo "    build [target]"
     echo "    run [target]"
@@ -152,6 +158,11 @@ print_help() {
 option=$1
 target=$2
 case "${option}" in
+    lint)
+        debug_print "code lint begin"
+        code_lint
+        debug_print "code lint end"
+        ;;
     prepare)
         debug_print "target prepare begin"
         prepare_sh
